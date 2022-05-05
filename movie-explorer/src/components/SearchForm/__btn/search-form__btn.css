@@ -1,11 +1,13 @@
 .search-form__btn {
     width: 34px;
     height: 34px;
+    position: absolute;
+    top: 13px;
+    right: 0;
     border: none;
     background-color: #FF6838;
     border-radius: 50%;
     padding: 0;
-    margin: 0 0 0 46px;
     cursor: pointer;
     transition: box-shadow .4s linear;
 }

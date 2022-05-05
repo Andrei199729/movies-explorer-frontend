@@ -19,6 +19,12 @@
     }
 }
 
+@media screen and (max-width: 500px) {
+    .techs__paragraph {
+        max-width: 292px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .techs__paragraph {
         margin: 24px auto 50px;

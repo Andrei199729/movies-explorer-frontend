@@ -1,5 +1,5 @@
 .movies-card__row {
-    margin: 16px 12px 17px 16px;
+    margin: 16px 28px 17px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -7,7 +7,17 @@
 
 @media screen and (max-width: 768px) {
     .movies-card__row {
-        margin: 14px 14px 15px;
+        margin: 14px 26px 15px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .movies-card__row {
+        margin-bottom: 14px;
+        margin-right: 22px;
         display: flex;
         align-items: center;
         justify-content: space-between;
