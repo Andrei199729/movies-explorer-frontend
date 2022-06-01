@@ -119,6 +119,7 @@ function Register(props) {
         maxLength="40"
         onChange={handleChangeName}
         onBlur={blurHandler}
+        autocomplete="off"
         required
       />
       <label className="form-authentication__label" htmlFor="emailregister">
@@ -134,6 +135,7 @@ function Register(props) {
         maxLength="40"
         onChange={handleChangeEmail}
         onBlur={blurHandler}
+        autocomplete="off"
         required
       />
       <label className="form-authentication__label" htmlFor="passwordregister">
@@ -149,6 +151,7 @@ function Register(props) {
         maxLength="200"
         onChange={handleChangePassword}
         onBlur={blurHandler}
+        autocomplete="off"
         required
       />
     </FormAuthentication>
