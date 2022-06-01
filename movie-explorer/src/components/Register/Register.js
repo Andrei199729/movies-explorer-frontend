@@ -19,6 +19,12 @@ function Register(props) {
     }
   }, [dataError]);
 
+  useEffect(() => {
+    setNameRegister("");
+    setEmailRegister("");
+    setPasswordRegister("");
+  }, []);
+
   function handleChangeName(e) {
     setNameRegister(e.target.value);
     if (
@@ -76,11 +82,6 @@ function Register(props) {
       return;
     }
     props.handleRegistration(nameRegister, emailRegister, passwordRegister);
-    const form = e.target;
-    form.reset();
-    setNameRegister("");
-    setEmailRegister("");
-    setPasswordRegister("");
   }
 
   function blurHandler(e) {
