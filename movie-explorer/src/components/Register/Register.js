@@ -58,7 +58,7 @@ function Register(props) {
 
   function handleChangePassword(e) {
     setPasswordRegister(e.target.value);
-    if (e.target.value.length < 6 || e.target.value.length > 20) {
+    if (e.target.value.length < 8 || e.target.value.length > 20) {
       setDataError(
         "Что-то пошло не так. Некорректный Email или неверный пароль"
       );
@@ -79,9 +79,6 @@ function Register(props) {
     setNameRegister("");
     setEmailRegister("");
     setPasswordRegister("");
-    console.log(nameRegister);
-    console.log(emailRegister);
-    console.log(passwordRegister);
   }
 
   function blurHandler(e) {
@@ -138,7 +135,7 @@ function Register(props) {
         type="email"
         name="email"
         value={emailRegister}
-        minLength="6"
+        minLength="8"
         maxLength="40"
         onChange={handleChangeEmail}
         onBlur={blurHandler}
@@ -154,7 +151,7 @@ function Register(props) {
         type="password"
         name="password"
         value={passwordRegister}
-        minLength="8"
+        minLength="6"
         maxLength="200"
         onChange={handleChangePassword}
         onBlur={blurHandler}
