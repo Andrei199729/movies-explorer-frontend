@@ -42,6 +42,7 @@ function App() {
   const [isInfoTooltip, setInfoTooltip] = useState(false);
   const pathHeadersArray = ["/", "/movies", "/saved-movies", "/profile"];
   const pathFootersArray = ["/", "/movies", "/saved-movies"];
+  const pathRegistr = ["/signup"];
 
   const pathHeaders = pathHeadersArray.includes(location.pathname);
   const pathFooters = pathFootersArray.includes(location.pathname);
@@ -373,7 +374,10 @@ function App() {
           <Login handleAuthorization={handleAuthorization} />
         </Route>
         <Route path="/signup">
-          <Register handleRegistration={handleRegistration} />
+          <Register
+            handleRegistration={handleRegistration}
+            pathRegistr={pathRegistr}
+          />
         </Route>
         <Route path="*" component={Error} />
       </Switch>

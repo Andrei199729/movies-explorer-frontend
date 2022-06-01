@@ -20,10 +20,12 @@ function Register(props) {
   }, [dataError]);
 
   useEffect(() => {
-    setNameRegister("");
-    setEmailRegister("");
-    setPasswordRegister("");
-  }, []);
+    if (props.pathRegistr) {
+      setNameRegister("");
+      setEmailRegister("");
+      setPasswordRegister("");
+    }
+  }, [props.pathRegistr]);
 
   function handleChangeName(e) {
     setNameRegister(e.target.value);
