@@ -72,15 +72,21 @@ function MoviesCardList(props) {
                 />
               );
             })}
-        {(pathMovies && (props.movies || []).length === 0) ||
-        (pathMovies && (props.shortMovies || []).length === 0) ||
-        (pathSavedMovies && (props.saveMovies || []).length === 0) ||
-        (pathSavedMovies && (props.shortMovies || []).length === 0) ? (
+        {(pathMovies && props.movies && props.movies.length === 0) || //изменение
+        (pathMovies && props.shortMovies && props.shortMovies.length === 0) || //изменение
+        (pathSavedMovies &&
+          props.saveMovies &&
+          props.saveMovies.length === 0) || //изменение
+        (pathSavedMovies &&
+          props.shortMovies &&
+          props.shortMovies.length === 0) ? ( //изменение
           <p className="movies-not-found">{notFilms}</p>
         ) : null}
       </div>
 
-      {(!pathSavedMovies && (props.movies || []).length < countMovies) ||
+      {(!pathSavedMovies &&
+        props.movies &&
+        props.movies.length < countMovies) || //изменение
       pathSavedMovies ||
       props.onChecked ? null : (
         <button className="movies-card-list__btn" onClick={loreMore}>
