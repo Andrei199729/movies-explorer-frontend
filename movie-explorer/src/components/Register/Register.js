@@ -76,6 +76,12 @@ function Register(props) {
       return;
     }
     props.handleRegistration(nameRegister, emailRegister, passwordRegister);
+    setNameRegister("");
+    setEmailRegister("");
+    setPasswordRegister("");
+    console.log(nameRegister);
+    console.log(emailRegister);
+    console.log(passwordRegister);
   }
 
   function blurHandler(e) {
@@ -132,7 +138,7 @@ function Register(props) {
         type="email"
         name="email"
         value={emailRegister}
-        minLength="8"
+        minLength="6"
         maxLength="40"
         onChange={handleChangeEmail}
         onBlur={blurHandler}
