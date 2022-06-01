@@ -19,14 +19,6 @@ function Register(props) {
     }
   }, [dataError]);
 
-  useEffect(() => {
-    if (props.pathRegistr) {
-      setNameRegister("");
-      setEmailRegister("");
-      setPasswordRegister("");
-    }
-  }, [props.pathRegistr]);
-
   function handleChangeName(e) {
     setNameRegister(e.target.value);
     if (
@@ -123,7 +115,7 @@ function Register(props) {
         id="nameregister"
         type="text"
         name="name"
-        value={nameRegister || ""}
+        value={nameRegister}
         minLength="2"
         maxLength="40"
         onChange={handleChangeName}
@@ -139,7 +131,7 @@ function Register(props) {
         id="emailregister"
         type="email"
         name="email"
-        value={emailRegister || ""}
+        value={emailRegister}
         minLength="8"
         maxLength="40"
         onChange={handleChangeEmail}
@@ -155,7 +147,7 @@ function Register(props) {
         id="passwordregister"
         type="password"
         name="password"
-        value={passwordRegister || ""}
+        value={passwordRegister}
         minLength="8"
         maxLength="200"
         onChange={handleChangePassword}
