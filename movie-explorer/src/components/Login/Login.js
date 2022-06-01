@@ -116,7 +116,7 @@ function Login(props) {
         maxLength="200"
         onChange={handleChangePassword}
         onBlur={blurHandler}
-        autocomplete="off"
+        autoComplete="off"
         required
       />
     </FormAuthentication>
