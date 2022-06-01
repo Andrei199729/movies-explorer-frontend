@@ -114,12 +114,12 @@ function Register(props) {
         id="nameregister"
         type="text"
         name="name"
-        value={nameRegister ? nameRegister : ""}
+        value={nameRegister || ""}
         minLength="2"
         maxLength="40"
         onChange={handleChangeName}
         onBlur={blurHandler}
-        autocomplete="off"
+        autoComplete="off"
         required
       />
       <label className="form-authentication__label" htmlFor="emailregister">
@@ -130,12 +130,12 @@ function Register(props) {
         id="emailregister"
         type="email"
         name="email"
-        value={emailRegister ? emailRegister : ""}
+        value={emailRegister || ""}
         minLength="8"
         maxLength="40"
         onChange={handleChangeEmail}
         onBlur={blurHandler}
-        autocomplete="off"
+        autoComplete="off"
         required
       />
       <label className="form-authentication__label" htmlFor="passwordregister">
@@ -146,12 +146,12 @@ function Register(props) {
         id="passwordregister"
         type="password"
         name="password"
-        value={passwordRegister ? passwordRegister : ""}
+        value={passwordRegister || ""}
         minLength="8"
         maxLength="200"
         onChange={handleChangePassword}
         onBlur={blurHandler}
-        autocomplete="off"
+        autoComplete="off"
         required
       />
     </FormAuthentication>
