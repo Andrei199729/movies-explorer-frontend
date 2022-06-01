@@ -72,15 +72,15 @@ function MoviesCardList(props) {
                 />
               );
             })}
-        {(pathMovies && props.movies.length === 0) ||
-        (pathMovies && props.shortMovies.length === 0) ||
-        (pathSavedMovies && props.saveMovies.length === 0) ||
-        (pathSavedMovies && props.shortMovies.length === 0) ? (
+        {(pathMovies && (props.movies || []).length === 0) ||
+        (pathMovies && (props.shortMovies || []).length === 0) ||
+        (pathSavedMovies && (props.saveMovies || []).length === 0) ||
+        (pathSavedMovies && (props.shortMovies || []).length === 0) ? (
           <p className="movies-not-found">{notFilms}</p>
         ) : null}
       </div>
 
-      {(!pathSavedMovies && props.movies.length < countMovies) ||
+      {(!pathSavedMovies && (props.movies || []).length < countMovies) ||
       pathSavedMovies ||
       props.onChecked ? null : (
         <button className="movies-card-list__btn" onClick={loreMore}>
