@@ -75,6 +75,9 @@ function Register(props) {
       return;
     }
     props.handleRegistration(nameRegister, emailRegister, passwordRegister);
+    setNameRegister("");
+    setEmailRegister("");
+    setPasswordRegister("");
   }
 
   function blurHandler(e) {
