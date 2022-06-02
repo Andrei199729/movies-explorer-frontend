@@ -267,7 +267,7 @@ function App() {
   function checkShortFilms(e) {
     setLoaded(true);
     setTimeout(() => {
-      if (checked) {
+      if (!checked) {
         const durationMovieShort = movies.filter(
           (movie) => movie.duration <= 40
         );
