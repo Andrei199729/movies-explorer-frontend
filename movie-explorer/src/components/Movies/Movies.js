@@ -13,6 +13,7 @@ function Movies(props) {
         checkShortFilms={props.checkShortFilms}
         onCheckedFilms={props.onCheckedFilms}
         pathMovies={props.pathMovies}
+        setIsFiltered={props.setIsFiltered}
       />
       {props.loaded ? (
         <Preloader />
