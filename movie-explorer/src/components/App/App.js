@@ -129,16 +129,6 @@ function App() {
     setShortMoviesSave(
       JSON.parse(localStorage.getItem("durationMovieShortSave"))
     );
-  }, [checkedFilms, checkedSaveFilms]);
-
-  useEffect(() => {
-    const handleWindowLoad = () => {
-      setLoggedIn(false);
-    };
-
-    window.addEventListener("load", handleWindowLoad);
-
-    return () => window.removeEventListener("load", handleWindowLoad);
   }, []);
 
   // Закрытие попапа уведомления
@@ -323,33 +313,31 @@ function App() {
   // Короткометражки фильмов
   function checkShortFilms(e) {
     setLoaded(true);
+    localStorage.setItem("checkedFilms", JSON.stringify(!checkedFilms));
     setTimeout(() => {
-      if (!localStorage.getItem("checkedFilms")) {
+      if (checkedFilms) {
         const durationMovieShort = movies.filter(
           (movie) => movie.duration <= 40
         );
-
         localStorage.setItem(
           "durationMovieShort",
           JSON.stringify(durationMovieShort)
         );
-        localStorage.setItem("checkedFilms", JSON.stringify(!checkedFilms));
         setShortMovies(JSON.parse(localStorage.getItem("durationMovieShort")));
-        setCheckedFilms(JSON.parse(localStorage.getItem("checkedFilms")));
       } else {
-        localStorage.setItem("checkedFilms", JSON.stringify(!checkedFilms));
         setMovies(movies);
-        setCheckedFilms(JSON.parse(localStorage.getItem("checkedFilms")));
       }
       setLoaded(false);
     }, 450);
+    setCheckedFilms(!checkedFilms);
   }
 
   // Короткометражки сохраненных фильмов
   function checkShortFilmsSave(e) {
     setLoaded(true);
+    localStorage.setItem("checkedSaveFilms", JSON.stringify(!checkedSaveFilms));
     setTimeout(() => {
-      if (!localStorage.getItem("checkedSaveFilms")) {
+      if (checkedSaveFilms) {
         const durationMovieShortSave = saveMovies.filter(
           (movie) => movie.duration <= 40
         );
@@ -361,25 +349,12 @@ function App() {
         setShortMoviesSave(
           JSON.parse(localStorage.getItem("durationMovieShortSave"))
         );
-        localStorage.setItem(
-          "checkedSaveFilms",
-          JSON.stringify(!checkedSaveFilms)
-        );
-        setCheckedSaveFilms(
-          JSON.parse(localStorage.getItem("checkedSaveFilms"))
-        );
       } else {
         setSaveMovies(saveMovies);
-        localStorage.setItem(
-          "checkedSaveFilms",
-          JSON.stringify(!checkedSaveFilms)
-        );
-        setCheckedSaveFilms(
-          JSON.parse(localStorage.getItem("checkedSaveFilms"))
-        );
       }
       setLoaded(false);
     }, 450);
+    setCheckedSaveFilms(!checkedSaveFilms);
   }
 
   // Выход
@@ -418,7 +393,6 @@ function App() {
           onCheckedFilms={checkedFilms}
           shortMovies={shortMovies}
           pathMovies={pathMovies}
-          setIsFiltered={setIsFiltered}
         />
         <ProtectedRoute
           path="/saved-movies"
