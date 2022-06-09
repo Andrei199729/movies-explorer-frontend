@@ -3,10 +3,11 @@ import Find from "../../images/find.svg";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm(props) {
-  const valueData = JSON.parse(localStorage.getItem("moviesSearchValue"));
+  // const valueData = JSON.parse(localStorage.getItem("moviesSearchValue"));
   const [searchFilmValue, setSearchFilmValue] = useState(
-    valueData && props.pathMovies ? valueData : ""
+    props.valueSearch && props.pathMovies ? props.valueSearch : ""
   );
+
   const [searchFilmError, setSearchFilmError] = useState(
     "Нужно ввести ключевое слово"
   );
