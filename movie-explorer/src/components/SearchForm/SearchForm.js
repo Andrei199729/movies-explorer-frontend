@@ -3,11 +3,9 @@ import Find from "../../images/find.svg";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm(props) {
-  // const valueData = JSON.parse(localStorage.getItem("moviesSearchValue"));
   const [searchFilmValue, setSearchFilmValue] = useState(
     props.valueSearch && props.pathMovies ? props.valueSearch : ""
   );
-
   const [searchFilmError, setSearchFilmError] = useState(
     "Нужно ввести ключевое слово"
   );
@@ -29,7 +27,6 @@ function SearchForm(props) {
   function handleEnter(event) {
     event.preventDefault();
     props.enterHandler(searchFilmValue);
-    console.log(event);
   }
 
   function blurHandler(e) {

@@ -50,7 +50,6 @@ function App() {
   const pathMoviesSave = location.pathname === "/saved-movies";
   const pathHeaders = pathHeadersArray.includes(location.pathname);
   const pathFooters = pathFootersArray.includes(location.pathname);
-
   // проверка токенов авторизованных пользователей, вернувшихся в приложение
   function checkToken() {
     const token = localStorage.getItem("token");
@@ -93,12 +92,7 @@ function App() {
             localStorage.setItem("movies", JSON.stringify(movies));
             setSaveMovies(JSON.parse(localStorage.getItem("saveMovies")));
             setMovies(JSON.parse(localStorage.getItem("movies")));
-            setFilterMovies(JSON.parse(localStorage.getItem("movieSearch")));
-            setValueSearch(
-              JSON.parse(localStorage.getItem("moviesSearchValue"))
-            );
-            localStorage.setItem("isFiltered", JSON.stringify(isFiltered));
-            setIsFiltered(JSON.parse(localStorage.getItem("isFiltered")));
+
             setLoaded(false);
           })
           .catch((err) => {
@@ -128,7 +122,7 @@ function App() {
   useEffect(() => {
     setFilterMovies(JSON.parse(localStorage.getItem("moviesSearch")));
     setIsFiltered(JSON.parse(localStorage.getItem("isFiltered")));
-  }, [movies]);
+  }, []);
 
   // Обновление короткометражек
   useEffect(() => {
@@ -158,10 +152,14 @@ function App() {
       : [];
     localStorage.setItem("moviesSearch", JSON.stringify(moviesFilter));
     localStorage.setItem("isFiltered", JSON.stringify(true));
+    localStorage.setItem("moviesSearchValue", JSON.stringify(search));
     setTimeout(() => {
       setLoaded(false);
       setFilterMovies(JSON.parse(localStorage.getItem("moviesSearch")));
       setIsFiltered(JSON.parse(localStorage.getItem("isFiltered")));
+      setValueSearch(
+        JSON.parse(window.localStorage.getItem("moviesSearchValue"))
+      );
     }, 450);
   }
 
@@ -259,11 +257,10 @@ function App() {
         if (res) {
           localStorage.setItem("token", res.token);
           localStorage.setItem("moviesSearch", JSON.stringify(filterMovies));
-          localStorage.setItem(
+          window.localStorage.setItem(
             "moviesSearchValue",
             JSON.stringify(valueSearch)
           );
-          // JSON.parse(localStorage.getItem("moviesSearchValue"));
           setLoggedIn(true);
           handleInfoTooltip({
             union: unionTrue,

@@ -16,7 +16,6 @@ function SavedMovies(props) {
         <Preloader />
       ) : (
         <MoviesCardList
-          // saveMovies={props.saveMovies}
           saveMovies={
             props.isFilteredSave ? props.saveFilterSaveMovies : props.saveMovies
           }
