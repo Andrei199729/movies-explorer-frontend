@@ -4,7 +4,7 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 function SearchForm(props) {
   const [searchFilmValue, setSearchFilmValue] = useState(
-    props.valueSearch && props.pathMovies ? props.valueSearch : ""
+    props.valueSearch || ""
   );
   const [searchFilmError, setSearchFilmError] = useState(
     "Нужно ввести ключевое слово"
