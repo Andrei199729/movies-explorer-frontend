@@ -351,11 +351,11 @@ function App() {
 
   // Выход
   function handleSignOut() {
-    localStorage.clear();
     setLoggedIn(false);
     setCurrentUser([]);
     setCheckedFilms(false);
     setCheckedSaveFilms(false);
+    localStorage.clear();
     history.push("/");
   }
 
